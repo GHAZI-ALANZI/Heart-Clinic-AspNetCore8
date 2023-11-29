@@ -18,5 +18,39 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-image: linear-gradient(to right, #005aa7, #fffde4);
+}
+
+
+.shadow-img {
+    -webkit-box-shadow: 6px 3px 23px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 3px 23px -4px rgba(0,0,0,0.75);
+    box-shadow: 6px 3px 23px -4px rgba(0,0,0,0.75);
+}
+
+
+.bgCard {
+    background-image: linear-gradient(to right, #005aa7, #fffde4);
+}
+
+
+.oleo-script-bold {
+    font-family: "Oleo Script", system-ui;
+    font-weight: 700;
+    font-style: normal;
+    font-size:5rem;
+}
+table tr td, table tr th {
+    background: rgba( 255, 255, 255, 0 ) !important;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 )!important;
+    backdrop-filter: blur( 1px )!important;
+    -webkit-backdrop-filter: blur( 1px )!important;
+    border-radius: 10px!important;
+    border: 1px solid rgba( 255, 255, 255, 0.18 )!important;
+}
+
+
+.font-weight {
+    font-weight: 700;
 }
