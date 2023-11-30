@@ -1,0 +1,91 @@
+﻿@model Heart_Clinic.Models.DoctorDetails
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <button type="button" class="btn btn-outline-success me-4">
+        <a asp-controller="Home" class="text-white text-decoration-none"
+           asp-action="Success">Back</a>
+    </button>
+
+
+    <button type="button" class="btn btn-outline-success me-4"><a class="text-white text-decoration-none" asp-action="Create">Refresh</a></button>
+</p>
+
+<center><h3 class="text-white oleo-script-bold">Creating Doctor details</h3></center>
+
+<div class="row">
+    <div class="col-md-4">
+        <form class="text-white" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"> First Name</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label">Last Name</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <label>Gender</label><br />
+            @Html.RadioButtonFor(model => model.Sex, "Male" ) 
+            Male<br />
+            @Html.RadioButtonFor(model => model.Sex, "Female")
+            Female<br />
+            @Html.RadioButtonFor(model => model.Sex, "Others")
+            Others<br /><br />
+
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label">Date of Birth</label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpecializationRequired" class="control-label">Specialization</label>
+                <select class="form-control" id="SpecializationRequired" name="SpecializationRequired">
+                    <option> General</option>
+                    <option>Gynaecologist</option>
+                    <option>Pediatrics</option>
+                    <option>Orthopedics</option>
+                    <option>Ophthalmology</option>
+                </select>
+                <span asp-validation-for="SpecializationRequired" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Experiance" class="control-label"></label>
+                <input asp-for="Experiance" class="form-control" />
+                <span asp-validation-for="Experiance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocEmail" class="control-label">Email-ID</label>
+                <input asp-for="DocEmail" class="form-control" />
+                <span asp-validation-for="DocEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ContactNo" class="control-label">Contact Number</label>
+                <input asp-for="ContactNo" class="form-control" />
+                <span asp-validation-for="ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <button type="button" class="btn btn-outline-dark"><a class="text-decoration-none text-white" asp-action="Index">Existing Doctor details</a></button>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

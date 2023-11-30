@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Heart_Clinic.Models.DoctorDetails>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="text-white oleo-script-bold">List of  doctors Available in the Clinic</h3>
+
+
+<p>
+    <button type="button" class="btn btn-outline-success me-4">
+        <a asp-controller="Home" class="text-white text-decoration-none"
+           asp-action="Success">Back</a>
+    </button>
+
+
+    <button type="button" class="btn btn-outline-success"><a class="text-white text-decoration-none" asp-action="Create">New Doctor</a></button>
+
+</p>
+<table class="table ">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+      
+            <th>
+                @Html.DisplayNameFor(model => model.SpecializationRequired)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpecializationRequired)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactNo)
+                </td>
+                <td>
+                    <a class="text-success font-weight" asp-action="Edit" asp-route-id="@item.DoctorID">Edit </a> |
+                    <a class="text-info font-weight" asp-action="Details" asp-route-id="@item.DoctorID">Details</a> |
+                    <a class="text-danger font-weight" asp-action="Delete" asp-route-id="@item.DoctorID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

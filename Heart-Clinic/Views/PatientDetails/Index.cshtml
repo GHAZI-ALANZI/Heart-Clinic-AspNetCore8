@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Heart_Clinic.Models.PatientDetails>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<p>
+    <button type="button" class="btn btn-outline-success">
+        <a asp-controller="Home" class="text-white text-decoration-none"
+           asp-action="Success">Main Menu</a>
+    </button>
+
+    <button type="button" class="btn btn-outline-success"><a class="text-white text-decoration-none" asp-action="Create">Add Patient</a></button>
+
+</p>
+
+   
+    
+
+  
+
+<center><h3 class="text-white oleo-script-bold">List of Patients</h3></center>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+    
+            <th>
+                @Html.DisplayNameFor(model => model.PatientPhone)
+            </th>
+         
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+          
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientPhone)
+                </td>
+          
+                <td>
+                    <a class="text-success font-weight" asp-action="Edit" asp-route-id="@item.PatientId">Edit</a> |
+                    <a class="text-info font-weight" asp-action="Details" asp-route-id="@item.PatientId">Details</a> |
+                    <a class="text-danger font-weight" asp-action="Delete" asp-route-id="@item.PatientId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
