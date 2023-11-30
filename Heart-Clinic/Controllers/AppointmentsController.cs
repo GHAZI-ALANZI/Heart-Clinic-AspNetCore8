@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Heart_Clinic.Controllers
 {
-
+    [Authorize]
     
     public class AppointmentsController : Controller
     {

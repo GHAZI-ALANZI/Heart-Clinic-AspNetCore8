@@ -1,9 +1,11 @@
 using Heart_Clinic.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace Heart_Clinic.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
 
